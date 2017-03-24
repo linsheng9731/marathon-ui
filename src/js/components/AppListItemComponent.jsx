@@ -186,6 +186,22 @@ var AppListItemComponent = React.createClass({
     );
   },
 
+    getEditPage: function () {
+      var classSet = classNames("actions-cell", {
+      "cell-highlighted": this.props.sortKey === "healthWeight"
+    });
+      if(!this.props.model.isGroup) {
+    return (
+        <td  style={{width: "5px"}} title="Edit Page"
+          onClick={this.handleEditApp}>
+       <button>✎ Edit</button>
+      </td>
+    );
+  }
+  },
+
+
+
   getAppName: function () {
     var props = this.props;
     var model = props.model;
@@ -337,6 +353,7 @@ var AppListItemComponent = React.createClass({
           &hellip;
         </span>
      </AppListItemLabelsComponent>
+
     );
   },
 
@@ -400,6 +417,8 @@ var AppListItemComponent = React.createClass({
         </td>
         {this.getHealthBar()}
         {this.getActionsCell()}
+        {this.getEditPage()}
+
       </tr>
     );
   }

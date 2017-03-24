@@ -14,6 +14,8 @@ import QueueActions from "../actions/QueueActions";
 import QueueEvents from "../events/QueueEvents";
 import QueueStore from "../stores/QueueStore";
 import ExternalLinks from "../constants/ExternalLinks";
+import {Link} from "react-router";
+
 
 var bindOneTimeEvents = function (store, resolverEvents, handlers) {
   var eventHandlers = [];
@@ -213,6 +215,16 @@ var AppActionsHandlerMixin = {
 
         AppsActions.scaleApp(model.id, instances);
       }
+    });
+  },
+
+  handleEditApp: function (event) {
+    event.stopPropagation();
+    event.preventDefault();
+    var appVersion = this.props.model;
+    var router = this.context.router;
+    router.transitionTo(router.getCurrentPathname(), {}, {
+      modal: `edit-app--${appVersion.id}--${appVersion.version}`
     });
   },
 

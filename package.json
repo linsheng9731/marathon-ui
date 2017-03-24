@@ -81,7 +81,8 @@
   "scripts": {
     "build": "gulp",
     "clean": "rm -rf dist release",
-    "dist": "export GULP_ENV=\"production\" && npm run clean && npm run test && npm run build",
+    "dist": "export GULP_ENV=\"production\" && npm run clean &&  npm run build",
+     "dev": "export GULP_ENV=\"dev\" && npm run clean && npm run build",
     "shrinkwrap": "gulp version-check && npm shrinkwrap --dev",
     "test": "mocha --ui exports --reporter src/test/reporter/reporterSwitch --require babel-core/register --require babel-polyfill --require src/test/environment/jsdom  src/test/units/**/*.test.* src/test/scenarios/**/*.test.*",
     "test:units": "mocha --ui exports --reporter src/test/reporter/reporterSwitch --require babel-core/register --require babel-polyfill --require src/test/environment/jsdom  src/test/units/**/*.test.*",

@@ -7,8 +7,8 @@ var config = {
   rootUrl: "",
   // Defines the Marathon API URL,
   // leave empty to use the same as the UI is served.
-  apiURL: "../",
   // Intervall of API request in ms
+  apiURL: "http://10.0.1.237:8080/",
   updateInterval: 5000,
   // Local http server URI while tests run
   localTestserverURI: {

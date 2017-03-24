@@ -522,6 +522,7 @@ var AppListComponent = React.createClass({
             <col className="instances-col" />
             <col className="health-col" />
             <col className="actions-col" />
+            <col className="edit-col" />
           </colgroup>
           <thead>
             <tr>

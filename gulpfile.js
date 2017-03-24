@@ -45,7 +45,12 @@ var eslintOverrides = {rules: {}};
 
 var webpackWatch = false;
 var configFilePath = path.resolve(dirs.js + "/config/config.js");
-if (process.env.GULP_ENV === "development") {
+if(process.env.GULP_ENV === "dev"){
+	var devConfigFilePath = path.resolve(dirs.js + "/config/config.dev.js");
+    fs.accessSync(devConfigFilePath);
+    configFilePath = devConfigFilePath;
+}
+if (process.env.GULP_ENV === "development"  ) {
   webpackWatch = true;
   try {
     var devConfigFilePath = path.resolve(dirs.js + "/config/config.dev.js");
@@ -261,7 +266,7 @@ var tasks = [
   "index"
 ];
 
-if (process.env.GULP_ENV === "production") {
+if (process.env.GULP_ENV === "production" || process.env.GULP_ENV === "dev" ) {
   tasks.push("minify-css", "minify-js", "replace-js-strings");
 }
 gulp.task("default", tasks);
